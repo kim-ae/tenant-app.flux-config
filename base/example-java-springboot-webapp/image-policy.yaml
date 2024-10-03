@@ -10,4 +10,4 @@ spec:
     extract: "version"
   policy:
     semver:
-      range: "^0.0.3"
+      range: "*"
