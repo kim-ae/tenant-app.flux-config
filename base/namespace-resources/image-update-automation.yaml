@@ -6,7 +6,7 @@ spec:
   interval: 1m0s
   sourceRef:
     kind: GitRepository
-    name: awesome-system
+    name: tenant-app
   git:
     checkout:
       ref:
