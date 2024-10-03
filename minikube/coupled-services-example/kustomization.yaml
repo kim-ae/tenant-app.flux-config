@@ -1,4 +1,4 @@
-namespace: awesome-system
+namespace: tenant-app
 resources:
   - coupled-services-example1
   - coupled-services-example2
