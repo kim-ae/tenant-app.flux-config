@@ -11,4 +11,3 @@ spec:
   policy:
     semver:
       range: "^0.0.3"
-      exclude: false

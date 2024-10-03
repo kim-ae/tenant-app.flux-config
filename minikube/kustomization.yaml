@@ -2,3 +2,6 @@ namespace: tenant-app
 resources:
   - example-java-springboot-webapp
   - namespace-resources
+
+
+
