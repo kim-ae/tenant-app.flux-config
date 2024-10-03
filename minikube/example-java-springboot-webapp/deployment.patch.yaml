@@ -10,6 +10,6 @@ spec:
           resources:
             requests:
               cpu: 500m
-          envs:
+          env:
             - name: MY_RANDOM_VALUE
               value: "random"
