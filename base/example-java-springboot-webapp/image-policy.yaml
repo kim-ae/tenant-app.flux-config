@@ -7,7 +7,7 @@ spec:
     name: example-java-springboot-webapp
   filterTags:
     pattern: "^(?P<version>[0-9]+\\.[0-9]+\\.[0-9]+)-SNAPSHOT$"
-    extract: "version"
+    extract: "$version"
   policy:
-    alphabetical:
-      order: asc
+    semver:
+      range: '>=0.0.1'
