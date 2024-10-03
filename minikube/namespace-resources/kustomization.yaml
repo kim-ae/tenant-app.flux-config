@@ -1,0 +1,6 @@
+namespace: foundation
+resources:
+  - ../../base/namespace-resources
+
+patches:
+  - path: image-update-automation.patch.yaml
