@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: "example-java-springboot-webapp"
+  labels:
+    app.kubernetes.io/instance: example-java-springboot-webapp
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: http
+      name: http
+  selector:
+    app.kubernetes.io/name: example-java-springboot-webapp

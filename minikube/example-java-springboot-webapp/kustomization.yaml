@@ -1,0 +1,27 @@
+resources:
+  - ingress.yaml
+  - ../../base/example-java-springboot-webapp
+images:
+  - name: example-java-springboot-webapp-placeholder
+    newName: kimae09/example-java-springboot-webapp
+    newTag: 0.0.3-SNAPSHOT # {"$imagepolicy": "awesome-system:example-java-springboot-webapp:tag"}
+patches:
+  - path: deployment.patch.yaml
+  - target:
+      kind: Deployment
+      name: example-java-springboot-webapp
+    patch: |-
+      - op: remove
+        path: /spec/template/spec/containers/0/resources/limits/cpu
+      - op: add
+        path: /spec/template/spec/containers/0/env/-
+        value:
+          name: MY_RANDOM_VALUE
+          value: "random"
+configMapGenerator:
+  - envs:
+      - resources/env.properties
+    name: example-java-springboot-webapp-env-vars
+  - files:
+      - application-test.yml=resources/application.yml
+    name: example-java-springboot-webapp-files
