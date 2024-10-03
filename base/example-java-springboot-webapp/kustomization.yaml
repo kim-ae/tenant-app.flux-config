@@ -1,4 +1,5 @@
 resources:
+  - image.yaml
   - service.yaml
   - deployment.yaml
   - image-policy.yaml

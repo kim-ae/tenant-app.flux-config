@@ -1,10 +1,7 @@
 resources:
   - ingress.yaml
   - ../../base/example-java-springboot-webapp
-images:
-  - name: example-java-springboot-webapp-placeholder
-    newName: kimae09/example-java-springboot-webapp
-    newTag: 0.0.4-SNAPSHOT # {"$imagepolicy": "tenant-app:example-java-springboot-webapp:tag"}
+
 patches:
   - path: deployment.patch.yaml
     # - target:
