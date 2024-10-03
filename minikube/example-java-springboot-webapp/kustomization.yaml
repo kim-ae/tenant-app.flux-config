@@ -4,20 +4,20 @@ resources:
 images:
   - name: example-java-springboot-webapp-placeholder
     newName: kimae09/example-java-springboot-webapp
-    newTag: 0.0.3-SNAPSHOT # {"$imagepolicy": "tenant-app:example-java-springboot-webapp:tag"}
+    newTag: 0.0.4-SNAPSHOT # {"$imagepolicy": "tenant-app:example-java-springboot-webapp:tag"}
 patches:
   - path: deployment.patch.yaml
-  # - target:
-  #     kind: Deployment
-  #     name: example-java-springboot-webapp
-  #   patch: |-
-  #     - op: remove
-  #       path: /spec/template/spec/containers/0/resources/limits/cpu
-  #     - op: add
-  #       path: /spec/template/spec/containers/0/env/-
-  #       value:
-  #         name: MY_RANDOM_VALUE
-  #         value: "random"
+    # - target:
+    #     kind: Deployment
+    #     name: example-java-springboot-webapp
+    #   patch: |-
+    #     - op: remove
+    #       path: /spec/template/spec/containers/0/resources/limits/cpu
+    #     - op: add
+    #       path: /spec/template/spec/containers/0/env/-
+    #       value:
+    #         name: MY_RANDOM_VALUE
+    #         value: "random"
 configMapGenerator:
   - envs:
       - resources/env.properties
