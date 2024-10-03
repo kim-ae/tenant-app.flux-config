@@ -1,5 +1,5 @@
 resources:
-  - image.yaml
+  - folder
   - service.yaml
   - deployment.yaml
   - image-policy.yaml
