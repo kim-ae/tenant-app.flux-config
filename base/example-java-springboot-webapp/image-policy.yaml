@@ -6,8 +6,8 @@ spec:
   imageRepositoryRef:
     name: example-java-springboot-webapp
   filterTags:
-    pattern: "^(?P<version>[0-9]+.[0-9]+.[0-9]+)-SNAPSHOT$"
+    pattern: "^(?P<version>[0-9]+\.[0-9]+\.[0-9]+)-SNAPSHOT$"
     extract: "version"
   policy:
     semver:
-      range: "*"
+      range: ">0.0.3"
