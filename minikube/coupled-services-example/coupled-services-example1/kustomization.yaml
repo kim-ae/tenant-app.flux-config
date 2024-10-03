@@ -1,0 +1,13 @@
+resources:
+  - ingress.yaml
+  - ../../../base/coupled-services-example1
+images:
+  - name: coupled-services-example1-placeholder
+    newName: kimae09/example-java-springboot-webapp
+    newTag: 0.0.3-SNAPSHOT # {"$imagepolicy": "awesome-system:coupled-services-example1:tag"}
+patches:
+  - path: deployment.patch.yaml
+configMapGenerator:
+  - files:
+      - application-test.yml=resources/application.yml
+    name: coupled-services-example1-files

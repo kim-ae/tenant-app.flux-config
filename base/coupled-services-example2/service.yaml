@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: coupled-services-example2
+  labels:
+    app.kubernetes.io/instance: coupled-services-example2
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: http
+      name: http
+  selector:
+    app.kubernetes.io/name: coupled-services-example2

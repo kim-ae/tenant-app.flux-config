@@ -1,0 +1,12 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: coupled-service-example
+spec:
+  interval: 1m0s
+  path: ./minikube/coupled-services-example
+  prune: true
+  serviceAccountName: tenant-app
+  sourceRef:
+    kind: GitRepository
+    name: tenant-app

@@ -1,0 +1,72 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: coupled-services-example2
+  labels:
+    app.kubernetes.io/instance: coupled-services-example2
+    com.kimae/owner: lian
+    com.kimae/system: coupled-services-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: coupled-services-example2
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: coupled-services-example2
+    spec:
+      securityContext:
+        fsGroup: 41808
+      containers:
+        - name: app
+          image: coupled-services-example2-placeholder
+          resources:
+            limits:
+              cpu: 1
+              memory: 512M
+            requests:
+              memory: 512M
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /actuator/health
+              port: metrics
+              scheme: HTTP
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 1
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /actuator/health
+              port: metrics
+              scheme: HTTP
+          securityContext:
+            capabilities:
+              drop:
+                - all
+            readOnlyRootFilesystem: true
+            runAsUser: 41808
+            runAsGroup: 41808
+            runAsNonRoot: true
+            allowPrivilegeEscalation: false
+          ports:
+            - containerPort: 8080
+              name: http
+            - containerPort: 9090
+              name: metrics
+          volumeMounts:
+            - mountPath: /tmp
+              name: temp
+            - mountPath: /app/config
+              name: application-config
+          envFrom:
+            - configMapRef:
+                name: coupled-services-example-env-vars
+      volumes:
+        - name: temp
+          emptyDir: {}
+        - name: application-config
+          configMap:
+            name: coupled-services-example2-files

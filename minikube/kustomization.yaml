@@ -2,6 +2,7 @@ namespace: tenant-app
 resources:
   - example-java-springboot-webapp
   - namespace-resources
+  - couple-services-example.flux.yaml
 
 
 

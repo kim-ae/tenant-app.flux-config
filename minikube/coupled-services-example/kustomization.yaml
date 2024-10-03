@@ -1,0 +1,9 @@
+namespace: awesome-system
+resources:
+  - coupled-services-example1
+  - coupled-services-example2
+
+configMapGenerator:
+  - envs:
+      - resources/env.properties
+    name: coupled-services-example-env-vars

@@ -1,0 +1,13 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImagePolicy
+metadata:
+  name: coupled-services-example2
+spec:
+  imageRepositoryRef:
+    name: coupled-services-example2
+  filterTags:
+    pattern: "^(?P<version>[0-9]+.[0-9]+.[0-9]+)-SNAPSHOT$"
+    extract: "version"
+  policy:
+    alphabetical:
+      order: asc
